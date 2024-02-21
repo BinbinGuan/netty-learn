@@ -9,6 +9,7 @@
         <module>netty-demo-103</module>
         <module>netty-demo-104</module>
         <module>netty-demo-105</module>
+        <module>netty-demo-106</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
