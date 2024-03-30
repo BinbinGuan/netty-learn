@@ -1,4 +1,4 @@
-package demo.server;
+package demo;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
@@ -19,13 +19,14 @@ public class NettyServer {
         EventLoopGroup parentGroup = new NioEventLoopGroup(); //NioEventLoopGroup extends MultithreadEventLoopGroup Math.max(1, SystemPropertyUtil.getInt("io.netty.eventLoopThreads", NettyRuntime.availableProcessors() * 2));
         EventLoopGroup childGroup = new NioEventLoopGroup();
         try {
-            ServerBootstrap b = new ServerBootstrap();//配置服务端NIO线程组
+            ServerBootstrap b = new ServerBootstrap();
             b.group(parentGroup, childGroup)
                     .channel(NioServerSocketChannel.class)    //非阻塞模式
-                    .option(ChannelOption.SO_BACKLOG, 128)//服务端队列大小
-                    .childHandler(new MyChannelInitializer());
+                    .option(ChannelOption.SO_BACKLOG, 128)//服务端可连接队列数
+                    .childOption(ChannelOption.SO_KEEPALIVE, true)//保持长连接
+                    .childHandler(new MyChannelInitializer()); //绑定自定义的handler
             ChannelFuture f = b.bind(port).sync();
-            System.out.println("itstack-demo-netty server start done");
+            System.out.println("itstack-demo-netty server start done.");
             f.channel().closeFuture().sync();
         } catch (InterruptedException e) {
             e.printStackTrace();
