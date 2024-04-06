@@ -21,7 +21,7 @@ public class NioClient {
         } else {
             socketChannel.register(selector, SelectionKey.OP_CONNECT);
         }
-        System.out.println("itstack-demo-netty nio client start done.");
+        System.out.println("netty nio client start done.");
         new NioClientHandler(selector, Charset.forName("GBK")).start();
     }
 

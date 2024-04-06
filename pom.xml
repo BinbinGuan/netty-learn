@@ -19,6 +19,7 @@
         <module>netty-demo-2-01</module>
         <module>netty-demo-2-02</module>
         <module>netty-demo-2-03</module>
+        <module>netty-demo-2-04</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>

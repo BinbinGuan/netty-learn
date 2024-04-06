@@ -26,7 +26,7 @@ public class NettyServer {
                     .option(ChannelOption.SO_BACKLOG, 128)
                     .childHandler(new MyChannelInitializer());
             ChannelFuture f = b.bind(port).sync();//同步等待建立连接
-            System.out.println("itstack-demo-netty server start done.");
+            System.out.println("netty server start done.");
             f.channel().closeFuture().sync();//同步等待关闭连接
         } catch (InterruptedException e) {
             e.printStackTrace();

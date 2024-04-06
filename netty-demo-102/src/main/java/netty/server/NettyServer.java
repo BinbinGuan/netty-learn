@@ -25,7 +25,7 @@ public class NettyServer {
                     .option(ChannelOption.SO_BACKLOG, 128)//默认为128,作用于服务端接受客户端连接时的队列长度,如果队列已满,则服务端会拒绝连接
                     .childHandler(new MyChannelInitializer());//配置子管道handler，作用
             ChannelFuture f = b.bind(port).sync();
-            System.out.println("itstack-demo-netty server start done. ");
+            System.out.println("netty server start done. ");
             f.channel().closeFuture().sync();
         } catch (InterruptedException e) {
             e.printStackTrace();

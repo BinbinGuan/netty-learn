@@ -9,7 +9,7 @@ import io.netty.channel.socket.nio.NioServerSocketChannel;
 
 /**
  * 虫洞栈：https://bugstack.cn
- * 公众号：bugstack虫洞栈  ｛获取学习源码｝
+ * 公众号：  ｛获取学习源码｝
  * Create by fuzhengwei on 2019
  */
 public class NettyServer {
@@ -29,7 +29,7 @@ public class NettyServer {
                     .option(ChannelOption.SO_BACKLOG, 128)
                     .childHandler(new MyChannelInitializer());
             ChannelFuture f = b.bind(port).sync();
-            System.out.println("itstack-demo-netty server start done. {关注公众号：bugstack虫洞栈，获取源码}");
+            System.out.println("netty server start done. ");
             f.channel().closeFuture().sync();
         } catch (InterruptedException e) {
             e.printStackTrace();

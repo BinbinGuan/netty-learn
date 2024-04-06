@@ -23,7 +23,7 @@ public class NioServer {
             socketChannel.configureBlocking(false);
             socketChannel.socket().bind(new InetSocketAddress(port), 1024);
             socketChannel.register(selector, SelectionKey.OP_ACCEPT);
-            System.out.println("itstack-demo-netty nio server start done.");
+            System.out.println("netty nio server start done.");
             new NioServerHandler(selector, Charset.forName("GBK")).start();
         } catch (IOException e) {
             e.printStackTrace();

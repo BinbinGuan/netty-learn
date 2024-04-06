@@ -20,7 +20,7 @@ public class BioServer extends Thread {
         try {
             serverSocket = new ServerSocket();
             serverSocket.bind(new InetSocketAddress(7397));
-            System.out.println("itstack-demo-netty bio server start done.");
+            System.out.println("netty bio server start done.");
             while (true) {
                 Socket socket = serverSocket.accept();
                 BioServerHandler handler = new BioServerHandler(socket, Charset.forName("GBK"));

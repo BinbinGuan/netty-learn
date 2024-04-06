@@ -26,7 +26,7 @@ public class NettyServer {
                     .childOption(ChannelOption.SO_KEEPALIVE, true)//保持长连接
                     .childHandler(new MyChannelInitializer()); //绑定自定义的handler
             ChannelFuture f = b.bind(port).sync();
-            System.out.println("itstack-demo-netty server start done.");
+            System.out.println("netty server start done.");
             f.channel().closeFuture().sync();
         } catch (InterruptedException e) {
             e.printStackTrace();

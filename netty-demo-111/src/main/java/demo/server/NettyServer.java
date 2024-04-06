@@ -22,7 +22,7 @@ public class NettyServer {
                     .handler(new MyChannelInitializer());
 
             ChannelFuture f = b.bind(7397).sync();
-            System.out.println("itstack-demo-netty udp server start done.");
+            System.out.println("netty udp server start done.");
             f.channel().closeFuture().sync();
         } finally {
             //优雅的关闭释放内存
